@@ -13,3 +13,13 @@
    "EVER. WE SHOULD RUN AWAY!"))
 
 (too-enthusiastic "Zelda")
+
+(defn run
+  "Describe how you run"
+  ([how speed]
+    (str "I run " how " and " speed "."))
+  ([how]
+    (run how " slow")))
+
+(run "reqularly")
+(run "seldom" "fast")
