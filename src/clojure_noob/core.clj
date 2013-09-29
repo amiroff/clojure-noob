@@ -60,6 +60,23 @@
        (str "Hi, " name))
   ["Darth Vader" "Mr. Magoo"])
 
+;; Super short anonymous function definition
+
 (#(* % 3) 4)
 
 (#(str %1 " and " %2) "corn bread" "butter beans")
+
+;; Anonymous functions are cloSures
+
+(defn greeter-maker
+  "create a custom greeter"
+  [greet-with]
+  #(str greet-with % "!"))
+
+(def hello-greeter (greeter-maker "Hello, "))
+(def shalom-greeter (greeter-maker "Shalom, "))
+(def assalam-greeter (greeter-maker "Asaalam aleykum, "))
+
+(hello-greeter "Jesus")
+(shalom-greeter "Moses")
+(assalam-greeter "Mohammed")
