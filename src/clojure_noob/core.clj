@@ -1,6 +1,8 @@
 (ns clojure-noob.core
   (:gen-class))
 
+;; basic functions
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
@@ -14,8 +16,10 @@
 
 (too-enthusiastic "Zelda")
 
+;; arity functions
+
 (defn run
-  "Describe how you run"
+  "Describe how you run with arity function"
   ([how speed]
     (str "I run " how " and " speed "."))
   ([how]
@@ -23,3 +27,25 @@
 
 (run "reqularly")
 (run "seldom" "fast")
+
+;; variable arity functions
+
+(defn greet
+  "Greet someone"
+  [who]
+  (str "Salut, " who "!"))
+
+(defn greeter
+  "Greet with variable-arity function"
+  [& names]
+  (map greet names))
+
+(greeter "Rose" "Sarah" "Metin" "Alex")
+
+
+(defn favourite-things
+  [name & things]
+  (str "Hi " name ". Here are my favourite things: "
+    (clojure.string/join ", " things) "."))
+
+(favourite-things "Josh" "music" "programming" "Islam")
