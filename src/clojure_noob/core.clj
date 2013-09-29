@@ -49,3 +49,17 @@
     (clojure.string/join ", " things) "."))
 
 (favourite-things "Josh" "music" "programming" "Islam")
+
+;; Anonymous functions
+
+((fn [name]
+ "Define and run anonymous function"
+  (str "Hello " name)) "John")
+
+(map (fn [name]
+       (str "Hi, " name))
+  ["Darth Vader" "Mr. Magoo"])
+
+(#(* % 3) 4)
+
+(#(str %1 " and " %2) "corn bread" "butter beans")
