@@ -1,12 +1,52 @@
 (ns clojure-noob.core
   (:gen-class))
 
-;; basic functions
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
   (println "Hello, World!"))
+
+;; symbols (valiables)
+
+(def mysymbol "Hello world!")
+(str mysymbol)
+
+;; Maps (aka associative arrays)
+
+(def mymap ;; only a name..
+  {:a 1
+  :b "boring example"
+  :c []
+  "d" + })
+
+(get mymap :a)
+(:b mymap) ;; short version of above, works only with keywords
+((get mymap "d") 2 3) ;5
+
+{"name" "Metin" :surname "Amiroff"
+ :favs {:music "Chillstep" :os "OSX" :lang "Clojure"}}
+
+(:music (:favs {"name" "Metin" :surname "Amiroff"
+                :favs {:music "Chillstep" :os "OSX" :lang "Clojure"}}))
+
+;; vectors (aka arrays)
+
+[3 2 1]
+(get [3 2 1] 0)
+
+;; lists
+
+'(1 2 3 4)
+(nth '(1 2 3 4) 3) ;; 4
+
+;; sets are collections of unique values
+
+#{"hannah montanna" "miley cyrus" 20 45}
+(conj #{:a :b} :b) ;; #{:a :b}
+(get #{:a :b} :a) ;; :a
+
+;; basic functions
 
 (defn too-enthusiastic
   "Return a cheer that might sound a bit too enthusiastic"
