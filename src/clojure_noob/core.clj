@@ -145,3 +145,14 @@
   (if (> iteration 3)
     (println "Goodbye!")
     (recur (inc iteration)))) ;; run the same anon function created by loop but this time incrementing a parameter
+
+
+;; Regular Expressions
+
+
+#"i-am-a-regular-expression"
+
+(re-find #"^test" "retesting") ;; test
+(re-find #"^test" "retesting") ;; nil
+
+(clojure.string/replace "my-left-eye" #"left" "right") ;; my-right-eye
