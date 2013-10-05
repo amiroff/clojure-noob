@@ -46,6 +46,18 @@
 (conj #{:a :b} :b) ;; #{:a :b}
 (get #{:a :b} :a) ;; :a
 
+;; conjoin adds element to a sequence (place depends on concrete type)
+
+(conj [1 2 3] 4) ;; [1 2 3 4]
+(conj '(1 2 3) 4) ;; (4 1 2 3)
+(conj {:a 1} {:b 3}) ;; {:b 3, :a 1}
+(conj #{:a :b} :c)  ;; #{:a :c :b}
+
+;; Sorting
+
+(sort #{:a :c :b}) ;; (:a :b :c)
+(sort {:b 0, :a 1}) ;; ([:a 1] [:b 0])
+
 ;; basic functions
 
 (defn too-enthusiastic
