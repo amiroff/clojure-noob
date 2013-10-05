@@ -7,7 +7,7 @@
   [& args]
   (println "Hello, World!"))
 
-;; symbols (valiables)
+;; symbols (variables)
 
 (def mysymbol "Hello world!")
 (str mysymbol)
@@ -88,7 +88,7 @@
   (str "Hi " name ". Here are my favourite things: "
     (clojure.string/join ", " things) "."))
 
-(favourite-things "Josh" "music" "programming" "Islam")
+(favourite-things "Josh" "music" "programming" "Islam") ;; arguments get treated as a list.
 
 ;; Anonymous functions
 
@@ -120,3 +120,28 @@
 (hello-greeter "Jesus")
 (shalom-greeter "Moses")
 (assalam-greeter "Mohammed")
+
+;; let binds value on the right to the symbol on the left and returns last expression
+
+(let [x 3]
+  x) ;; 3
+
+(let [x 3 y 5]
+  (str x y)) ;; 35
+
+(def dalmatian-list
+  ["Pongo" "Missis" "Puppy 1" "Puppy 2"])
+
+(let [dalmatians (take 2 dalmatian-list)]
+  dalmatians) ;; ("Pongo" "Missis")
+
+(let [[pongo & others] dalmatian-list]
+  [pongo others]) ;; ["Pongo" ("Missis" "Puppy 1" "Puppy 2")]
+
+;; looping
+
+(loop [iteration 0] ;; start loop with default value of iteration set to 0
+  (println (str "Iteration " iteration))
+  (if (> iteration 3)
+    (println "Goodbye!")
+    (recur (inc iteration)))) ;; run the same anon function created by loop but this time incrementing a parameter
