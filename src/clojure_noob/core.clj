@@ -7,6 +7,15 @@
   [& args]
   (println "Hello, World!"))
 
+;; I am a comment
+
+"I am a string and I
+  can span multiple lines"
+
+(str "I concatenate" " strings")
+
+["a" "b" #_you_can_ignore_me 43] ;; #_ is ignore syntax
+
 ;; symbols (variables)
 
 (def mysymbol "Hello world!")
@@ -33,7 +42,8 @@
 ;; vectors (aka arrays)
 
 [3 2 1]
-(get [3 2 1] 0)
+(get [3 2 1] 0) ;; 3
+([3 2 1] 1) ;; 2 - vectors are functions
 
 ;; lists
 
@@ -52,6 +62,9 @@
 (conj '(1 2 3) 4) ;; (4 1 2 3)
 (conj {:a 1} {:b 3}) ;; {:b 3, :a 1}
 (conj #{:a :b} :c)  ;; #{:a :c :b}
+(conj [] 1) ;; [1]
+(conj [1] 2 3) ;; [1 2 3]
+(conj '(1) 2 3) ;; (3 2 1)
 
 ;; Sorting
 
@@ -100,7 +113,7 @@
   (str "Hi " name ". Here are my favourite things: "
     (clojure.string/join ", " things) "."))
 
-(favourite-things "Josh" "music" "programming" "Islam") ;; arguments get treated as a list.
+(favourite-things "Movies" "music" "programming" "Monotheism") ;; arguments get treated as a list.
 
 ;; Anonymous functions
 
