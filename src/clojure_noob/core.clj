@@ -12,6 +12,12 @@
 "I am a string and I
   can span multiple lines"
 
+;; nil is null and false
+
+(str nil) ; ""
+(true? nil) ; false
+
+
 (str "I concatenate" " strings")
 
 ["a" "b" #_you_can_ignore_me 43] ;; #_ is ignore syntax
