@@ -27,9 +27,17 @@
 (def mysymbol "Hello world!")
 (str mysymbol)
 
+;; Quoting keeps something from being evaluated
+
+(quote (println "foo")) ;; (println "foo")
+(quote (+ 3 2)) ;; (+ 3 2)
+
+;; ' is the shortcut for quote
+(= 'a (quote a)) ;; true
+
 ;; lists
 
-'(1 2 3 4) ;; ' is there to distinguish from normal function call
+'(1 2 3 4)
 (nth '(1 2 3 4) 3) ;; 4
 
 ;; Comma is iqual to space so can be used to improve readability when needed
