@@ -143,6 +143,10 @@
        (str "Hi, " name))
   ["Darth Vader" "Mr. Magoo"])
 
+(fn myfun [a b] (str a b)) ;; we can provide a name for anon
+                           ;; function if we plan to use it
+                           ;; somewhere inside the function
+
 ;; Super short anonymous function definition
 
 (#(* % 3) 4)
