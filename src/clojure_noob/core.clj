@@ -196,4 +196,11 @@
 
 (. Cat meow) ; Cat.meow()
 (. foo bar 3 1) ; foo.bar(3, 1)
+(. (ack) bar "hello") ; ack().bar("hello")
 (.toString 3) ; "3"
+
+;; Instantiating java classes
+
+(new class arguments*)
+(new java.util.Date)
+(new java.util.Timer false)
