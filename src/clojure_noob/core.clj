@@ -22,10 +22,25 @@
 
 ["a" "b" #_you_can_ignore_me 43] ;; #_ is ignore syntax
 
-;; symbols (variables)
+;; symbol to var mappings
 
 (def mysymbol "Hello world!")
 (str mysymbol)
+
+;; lists
+
+'(1 2 3 4) ;; ' is there to distinguish from normal function call
+(nth '(1 2 3 4) 3) ;; 4
+
+;; Comma is iqual to space so can be used to improve readability when needed
+
+(= '(1 2 3) '(1, 2, 3)) ;; true
+
+;; vectors (aka arrays)
+
+[3 2 1]
+(get [3 2 1] 0) ;; 3
+([3 2 1] 1) ;; 2 - vectors are functions
 
 ;; Maps (aka associative arrays)
 
@@ -44,17 +59,6 @@
 
 (:music (:favs {"name" "Metin" :surname "Amiroff"
                 :favs {:music "Chillstep" :os "OSX" :lang "Clojure"}}))
-
-;; vectors (aka arrays)
-
-[3 2 1]
-(get [3 2 1] 0) ;; 3
-([3 2 1] 1) ;; 2 - vectors are functions
-
-;; lists
-
-'(1 2 3 4)
-(nth '(1 2 3 4) 3) ;; 4
 
 ;; sets are collections of unique values
 
@@ -187,3 +191,9 @@
 (re-find #"^test" "retesting") ;; nil
 
 (clojure.string/replace "my-left-eye" #"left" "right") ;; my-right-eye
+
+;; calling java methods
+
+(. Cat meow) ; Cat.meow()
+(. foo bar 3 1) ; foo.bar(3, 1)
+(.toString 3) ; "3"
