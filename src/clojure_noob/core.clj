@@ -19,6 +19,7 @@
 
 
 (str "I concatenate" " strings")
+(str 1 2 nil 3) ; str skips nil without error
 
 ["a" "b" #_you_can_ignore_me 43] ;; #_ is ignore syntax
 
@@ -70,6 +71,7 @@
 
 ;; sets are collections of unique values
 
+#{} ;; empty set
 #{"hannah montanna" "miley cyrus" 20 45}
 (conj #{:a :b} :b) ;; #{:a :b}
 (get #{:a :b} :a) ;; :a
@@ -143,9 +145,10 @@
        (str "Hi, " name))
   ["Darth Vader" "Mr. Magoo"])
 
-(fn myfun [a b] (str a b)) ;; we can provide a name for anon
+(fn myfun [a b] (str a b) myfun) ;; we can provide a name for anon
                            ;; function if we plan to use it
                            ;; somewhere inside the function
+                           ;; or maybe return function itself
 
 ;; Super short anonymous function definition
 
@@ -192,6 +195,8 @@
   (if (> iteration 3)
     (println "Goodbye!")
     (recur (inc iteration)))) ;; run the same anon function created by loop but this time incrementing a parameter
+
+(if 0 "ok" "not") ;; -> "ok"   0 is not false in clojure!
 
 
 ;; Regular Expressions
