@@ -12,6 +12,15 @@
 "I am a string and I
   can span multiple lines"
 
+;; A keyword is like a symbol, except that keywords begin with a colon (:).
+;; Key- words resolve to themselves. They are used to name things
+
+:foo ;; :foo
+
+;; Symbols refer to something
+
+foo ;; CompilerException java.lang.RuntimeException: Unable to resolve symbol: foo in this context, compiling:(NO_SOURCE_PATH:0:0)
+
 ;; nil is null and false
 
 (str nil) ; ""
@@ -53,21 +62,39 @@
 
 ;; Maps (aka associative arrays)
 
+(def inventors {"Lisp" "McCarthy" "Clojure" "Hickey"})
+
+;; Maps are functions. If you pass a key to a map, it will return that key’s value,
+;; or it will return nil if the key is not found:
+
+(inventors "Lisp") ; McCarthy
+(inventors "Foo")  ; nil
+
+;; any Clojure data structure can be a key in a map
+;; The fact that keywords resolve to themselves makes keywords useful as keys.
+
 (def mymap ;; only a name..
   {:a 1
   :b "boring example"
   :c []
   "d" + })
 
+;; Keywords are also functions. They take a map argument and look themselves up in the map.
+(:b mymap) ;; "boring example"
+
+;; we can also use get to lookup from map
+
 (get mymap :a)
-(:b mymap) ;; short version of above, works only with keywords
 ((get mymap "d") 2 3) ;5
+(get mymap "c" "not found") ; get can provide default value if not found
 
 {"name" "Metin" :surname "Amiroff"
  :favs {:music "Chillstep" :os "OSX" :lang "Clojure"}}
 
 (:music (:favs {"name" "Metin" :surname "Amiroff"
                 :favs {:music "Chillstep" :os "OSX" :lang "Clojure"}}))
+
+
 
 ;; sets are collections of unique values
 
