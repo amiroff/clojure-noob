@@ -177,6 +177,8 @@ foo ;; CompilerException java.lang.RuntimeException: Unable to resolve symbol: f
                            ;; somewhere inside the function
                            ;; or maybe return function itself
 
+(filter (fn [w] (> (count w) 2)) (str/split "A fine day" #"\W+")) ; ("fine" "day")
+
 ;; Super short anonymous function definition
 
 (#(* % 3) 4)
